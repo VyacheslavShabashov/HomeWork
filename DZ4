@@ -1,0 +1,92 @@
+// Project_4.cpp: определяет точку входа для консольного приложения.
+
+#include "stdafx.h"
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+
+void firstArraySwapMaxMin()
+{
+	int arrayA[5];
+
+	int max = 0;
+	int min = 0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		// считываем элементы
+		cout << "Введите элемент #" << i << ": ";
+		cin >> arrayA[i];
+
+		// находим индекс максимального элемента
+		if (arrayA[i] > arrayA[max])
+			max = i;
+
+		// находим индекс минимального элемента
+		if (arrayA[i] < arrayA[min])
+			min = i;
+	}
+
+	// выводим начальный массив
+	for (int i = 0; i < 5; i++)
+		cout << arrayA[i] << " ";
+	cout << endl;
+
+	// меняем местами
+	int tmp = arrayA[max];
+	arrayA[max] = arrayA[min];
+	arrayA[min] = tmp;
+
+	// выводим итоговый массив
+	for (int i = 0; i < 5; i++)
+		cout << arrayA[i] << " ";
+	cout << endl;
+}
+
+void secondArrayCalcSum()
+{
+	int arrayB[3][3];
+	int sum = 0;
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			// считываем элементы
+			cout << "Введите arrayB[" << i << "][" << j << "]: ";
+			cin >> arrayB[i][j];
+
+			// находим сумму положительных
+			if (arrayB[i][j] > 0)
+				sum += arrayB[i][j];
+		}
+	}
+
+	// выводим начальный массив
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout.width(4);
+			cout << arrayB[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	// выводим сумму
+	cout << "Сумма положительных элементов массива = " << sum << endl;
+}
+
+void main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	firstArraySwapMaxMin();
+	secondArrayCalcSum();
+
+
+
+	system("pause");
+}
