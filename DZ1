@@ -1,0 +1,36 @@
+// Project_1.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+
+/* перевод дюймов в сантиметры */
+double convertInchToCentimeters(double inchCount)
+{
+	return inchCount * 2.54;
+}
+
+/* вычисление площади прямоугольника */
+double rectangleSquare(double a, double b)
+{
+	return a * b;
+}
+
+void main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	double inchCount = 5.4;
+	cout << "Преобразование дюймов в сантиметры: " << endl << "дюймов: " << inchCount << " = сантиметров: " << convertInchToCentimeters(inchCount) << endl << endl;
+
+	double a = 7.2;
+	double b = 9.5;
+	cout << "Вычисление площади прямоугольника: " << endl << "длина: " << a << " ; ширина: " << b << endl;
+	cout << "Площадь = " << rectangleSquare(a, b) << endl;
+
+	system("pause");
+}
