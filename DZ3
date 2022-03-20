@@ -1,0 +1,40 @@
+// Project_3.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+
+void main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	char a[8][8];
+	for (int i = 0; i < 8; i++)
+		for (int j = 0; j < 8; j++)
+			a[i][j] = '.';
+	char xy[3];
+	cout << "Введите положение коня на доске (в шахматной нотации): ";
+	cin >> xy;
+	int x = xy[0] - 'a', y = 8 - (xy[1] - '0'); // считаем, что начало доски снизу
+	a[y][x] = 'K';
+	int dx[] = { -2,-2,-1,-1, 1,1, 2, 2 };
+	int dy[] = { -1, 1,-2, 2,-2,2,-1, 1 };
+	for (int i = 0; i < 8; i++)
+	{
+		int nx = x + dx[i];
+		int ny = y + dy[i];
+		if (nx >= 0 && nx<8 && ny >= 0 && ny<8)
+			a[ny][nx] = '*';
+	}
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+			cout << a[i][j];
+		cout << endl;
+	}
+	system("pause");
+}
